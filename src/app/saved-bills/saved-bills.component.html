@@ -15,7 +15,7 @@
     </tr>
     <tr *ngFor="let d of data " [attr.id]="d.id">
 
-      <td> <input class="form-check-input" (change)="changeStatus(d)" type="checkbox" id="{{'checkBox' + d.id}}"
+      <td> <input class="form-check-input" (change)="changeStatus(d,$event)" type="checkbox" id="{{'checkBox' + d.id}}"
           disabled></td>
       <td>{{ d.billerName }}</td>
       <td>{{ d.serviceName}}</td>

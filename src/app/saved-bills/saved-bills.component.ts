@@ -39,10 +39,17 @@ export class SavedBillsComponent {
     (<HTMLInputElement>document.getElementById(this.checkBoxInputId)).removeAttribute('disabled');
   }
 
-  changeStatus(element:any){ 
-   this.totalAmountToPay+=element.amountToPay; 
+  changeStatus(element:any,event: any){ 
+   this.checkBoxInputId = "checkBox"+element.id;
+   (<HTMLInputElement>document.getElementById(this.amountTopayId)).value = element.amountToPay;
+   if (event.target.checked){
+    this.totalAmountToPay+=element.amountToPay; 
+   }
+   else{
+    this.totalAmountToPay-=element.amountToPay;
+   }
   }
-
+  
   payButtonClick(){
     if(confirm("redirect to payment method page ")) {
     }
