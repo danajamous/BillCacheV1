@@ -9,6 +9,7 @@ import { SavedpaymentmethodsComponent } from './saved-payment-methods/savedpayme
 import { PaymentConfirmationComponent } from './payment-confirmation/payment-confirmation.component';
 
 const routes: Routes = [
+  {path:'',redirectTo:'savedBills', pathMatch: 'full' },
   {path:'savedBills',component:SavedBillsComponent},
   {path:'paynewBills',component:PaynewbillComponent},
    {path:'paymentHistory',component:PaymenthistoryComponent},

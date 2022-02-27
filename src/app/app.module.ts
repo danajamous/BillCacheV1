@@ -22,6 +22,7 @@ import { PaymenthistoryComponent } from './paymenthistory/paymenthistory.compone
 import { BillSummaryComponent } from './bill-summary/bill-summary.component';
 import { SavedpaymentmethodsComponent } from './saved-payment-methods/savedpaymentmethods.component';
 import { PaymentConfirmationComponent } from './payment-confirmation/payment-confirmation.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -50,8 +51,7 @@ import { PaymentConfirmationComponent } from './payment-confirmation/payment-con
     MatInputModule,
     MatTableModule,
     MatFormFieldModule,
-
-    
+    MatTooltipModule
     
   ],
   providers: [],

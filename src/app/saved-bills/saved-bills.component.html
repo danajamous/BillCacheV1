@@ -1,11 +1,10 @@
 <div class="grid-container">
-  <h1 class="mat-h1">Saved Bills</h1>
-  
+  <h1 class="mat-h1">Saved Bills   <button mat-icon-button color="primary" matTooltip="Inquire about the due amount of your saved bills by clicking on the inquire button beside each bill and then you can select them by check the check box to proceed to make a payment"   >
+    <mat-icon>info</mat-icon> 
+  </button></h1>
 
   <table class="table table-hover">
-    <!--class="mat-elevation-z8 table table-striped"-->
     <tr>
-
       <th></th>
       <th> Biller Name</th>
       <th> Service Name</th>
@@ -31,5 +30,6 @@
   </table>
   <a style="text-decoration: solid; font-size: 20px;"> Total amount to pay </a>
   <input disbaled type="text" [(ngModel)]='totalAmountToPay'>
-  <div style="margin-top:20px"><button type="button" [routerLink]="'/paymentConfirmation'"  class="btn btn-success">Pay</button></div>
+  <div style="margin-top:20px"><button type="button" [routerLink]="'/paymentConfirmation'"
+      class="btn btn-success">Pay</button></div>
 </div>
