@@ -41,6 +41,7 @@ export class SavedBillsComponent {
 
   changeStatus(element:any,event: any){ 
    this.checkBoxInputId = "checkBox"+element.id;
+   this.amountTopayId = "amountToPay" + element.id;
    (<HTMLInputElement>document.getElementById(this.amountTopayId)).value = element.amountToPay;
    if (event.target.checked){
     this.totalAmountToPay+=element.amountToPay; 
