@@ -9,10 +9,11 @@ import { Component, OnInit } from '@angular/core';
 
 
 export class SavedBillsComponent {
-  amountTopayInputId: string = "";
+  amountTopayId: string = "";
+  amountTopayValue: string = "";
   checkBoxInputId: string = "";
-  data: Array<any>;
   totalAmountToPay:number=0;
+  data: Array<any>;
   displayedColumns: string[] = ['id', 'billerName', 'serviceName', 'billingNumber', 'amountToPay', 'inquire'];
   constructor() {
     this.data = [{ id: 1, billerName: 'T-Mobile', serviceName: "Prepaid", billingNumber: "202345555", amountToPay: 5.50 },
@@ -27,17 +28,19 @@ export class SavedBillsComponent {
         this.data.splice(i, 1);
       }
     }
+    this.amountTopayId = "amountToPay" +id;
+    this.amountTopayValue=  (<HTMLInputElement>document.getElementById(this.amountTopayId)).value; 
+    this.totalAmountToPay -=  Number(this.amountTopayValue);; 
   }
   inquire(element: any) {
-    this.amountTopayInputId = "amountToPayInput" + element.id;
+    this.amountTopayId = "amountToPay" + element.id;
     this.checkBoxInputId = "checkBox"+element.id;
-    (<HTMLInputElement>document.getElementById(this.amountTopayInputId)).value = element.amountToPay;
+    (<HTMLInputElement>document.getElementById(this.amountTopayId)).value = element.amountToPay;
     (<HTMLInputElement>document.getElementById(this.checkBoxInputId)).removeAttribute('disabled');
   }
 
   changeStatus(element:any){ 
    this.totalAmountToPay+=element.amountToPay; 
-   console.log(this.checkBoxInputId);
   }
 
   payButtonClick(){

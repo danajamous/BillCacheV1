@@ -20,7 +20,7 @@
       <td>{{ d.billerName }}</td>
       <td>{{ d.serviceName}}</td>
       <td>{{ d.billingNumber }}</td>
-      <td> <input id="{{'amountToPayInput' + d.id}}" matInput></td>
+      <td> <input id="{{'amountToPay' + d.id}}" matInput></td>
       <td>
         <button mat-button (click)="inquire(d)">Inquire</button>
         <button mat-icon-button (click)="deleteRow(d.id)" id="remove">
