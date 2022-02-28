@@ -22,7 +22,7 @@ export class PaynewbillComponent implements OnInit {
     { value: 'Electricity-1', viewValue: 'Electricity' },
     { value: 'Education-2', viewValue: 'Education' },
     { value: 'Government-3', viewValue: 'Government Services' },
-    { value: 'Charity-2', viewValue: 'Charity' },
+    { value: 'Charity-4', viewValue: 'Charity' },
   ];
 
   ngOnInit(): void {

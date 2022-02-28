@@ -23,6 +23,7 @@ import { BillSummaryComponent } from './bill-summary/bill-summary.component';
 import { SavedpaymentmethodsComponent } from './saved-payment-methods/savedpaymentmethods.component';
 import { PaymentConfirmationComponent } from './payment-confirmation/payment-confirmation.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import {MatSortModule} from '@angular/material/sort';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatInputModule,
     MatTableModule,
     MatFormFieldModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatSortModule
     
   ],
   providers: [],
