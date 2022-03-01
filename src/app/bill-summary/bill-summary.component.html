@@ -7,10 +7,14 @@
         <tr>
             <th><a style="color:green"> Your bill summary</a></th>
         </tr>
-        <tr *ngFor="let d of childPosts ">
-            <td>{{d}}</td>
+        <tr >
+            <td>Biller Category : {{ billercategory[jsondata.billcategory]}} </td></tr>
+            <tr >  <td>Biller Name : {{ billername[jsondata.billername]}}  </td></tr>
+                <tr >  <td>Service Name : {{ service[jsondata.servicename]}}</td></tr>
+                    <tr > <td>Billing Number : {{jsondata.billingnumber}}</td>
         </tr>
     </table>
+  
 
     <label style ="font-weight: bold;">Total amount to pay</label> 30.8$
     <div style="margin-top:20px"><button [routerLink]="'/paymentConfirmation'" type="button" class="btn btn-success">Pay</button></div>
