@@ -34,9 +34,18 @@ export class SavedBillsComponent {
       }
     }
     this.amountTopayId = "amountToPay" +id;
+    this.checkBoxInputId = "checkBox"+ id;
     this.amountTopayValue=  (<HTMLInputElement>document.getElementById(this.amountTopayId)).value; 
-    this.totalAmountToPay -=  Number(this.amountTopayValue);; 
+    if((<HTMLInputElement>document.getElementById(this.checkBoxInputId)).checked)
+    {
+      this.totalAmountToPay -=  Number(this.amountTopayValue);
+      this.numberOfCheckedBills--;
+      if(this.numberOfCheckedBills ==0 )
+      this.buttonDisabled=true;
+   
+    }
   }
+
   inquire(element: any) {
     this.amountTopayId = "amountToPay" + element.id;
     this.checkBoxInputId = "checkBox"+ element.id;
