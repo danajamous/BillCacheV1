@@ -14,7 +14,12 @@ export class SavedBillsComponent {
   checkBoxInputId: string = "";
   totalAmountToPay:number=0;
   data: Array<any>;
+  buttonDisabled:boolean=true;
+  numberOfCheckedBills:number=0;
   displayedColumns: string[] = ['id', 'billerName', 'serviceName', 'billingNumber', 'amountToPay', 'inquire'];
+
+
+  
   constructor() {
     this.data = [{ id: 1, billerName: 'T-Mobile', serviceName: "Prepaid", billingNumber: "202345555", amountToPay: 5.50 },
     { id: 2, billerName: 'George Mason University ', serviceName: "Student Balance", billingNumber: "G-3788", amountToPay: 5000 },
@@ -34,7 +39,7 @@ export class SavedBillsComponent {
   }
   inquire(element: any) {
     this.amountTopayId = "amountToPay" + element.id;
-    this.checkBoxInputId = "checkBox"+element.id;
+    this.checkBoxInputId = "checkBox"+ element.id;
     (<HTMLInputElement>document.getElementById(this.amountTopayId)).value = element.amountToPay;
     (<HTMLInputElement>document.getElementById(this.checkBoxInputId)).removeAttribute('disabled');
   }
@@ -45,9 +50,14 @@ export class SavedBillsComponent {
    (<HTMLInputElement>document.getElementById(this.amountTopayId)).value = element.amountToPay;
    if (event.target.checked){
     this.totalAmountToPay+=element.amountToPay; 
+    this.numberOfCheckedBills++;
+    this.buttonDisabled=false;
    }
    else{
     this.totalAmountToPay-=element.amountToPay;
+    this.numberOfCheckedBills--;
+    if(this.numberOfCheckedBills ==0 )
+      this.buttonDisabled=true;
    }
   }
   

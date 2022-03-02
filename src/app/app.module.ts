@@ -24,6 +24,7 @@ import { SavedpaymentmethodsComponent } from './saved-payment-methods/savedpayme
 import { PaymentConfirmationComponent } from './payment-confirmation/payment-confirmation.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import {MatSortModule} from '@angular/material/sort';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
 @NgModule({
@@ -56,7 +57,7 @@ import {MatSortModule} from '@angular/material/sort';
     MatSortModule
     
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
