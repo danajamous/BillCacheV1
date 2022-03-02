@@ -16,6 +16,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PaynewbillComponent } from './paynewbill/paynewbill.component';
+import { AccountsettingsComponent} from './account-settings/accountsettings.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
 import { PaymenthistoryComponent } from './paymenthistory/paymenthistory.component';
@@ -36,7 +37,8 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     PaymenthistoryComponent,
     BillSummaryComponent,
     SavedpaymentmethodsComponent,
-    PaymentConfirmationComponent
+    PaymentConfirmationComponent,
+    AccountsettingsComponent,
   ],
   imports: [
     BrowserModule,

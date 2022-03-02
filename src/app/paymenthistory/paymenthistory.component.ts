@@ -8,15 +8,15 @@ export interface PaymentElement {
   billdate: string;
   billername: string;
   servicename: string;
-  billingnumer: string;
+  billingnumber: string;
   status: string;
 }
 
 const ELEMENT_DATA: PaymentElement[] = [
-  {billdate:'01-20-22', billername: 'T-mobile', servicename: 'Prepaid', billingnumer: '13023', status :'Success'},
-   {billdate:'12-10-21', billername: 'DMV Virginia', servicename: 'Car Title', billingnumer: '111023', status :'Success'},
-  {billdate:'11-21-21', billername: 'Florist Shop', servicename: 'Gift', billingnumer: 'VA-13023', status :'Success'},
-  {billdate:'04-20-21', billername: 'Florist Shop', servicename: 'Gift', billingnumer: 'VA-13023', status :'Fail'},
+  {billdate:'01-20-22', billername: 'T-mobile', servicename: 'Prepaid', billingnumber: '13023', status :'Success'},
+   {billdate:'12-10-21', billername: 'DMV Virginia', servicename: 'Car Title', billingnumber: '111023', status :'Success'},
+  {billdate:'11-21-21', billername: 'Florist Shop', servicename: 'Gift', billingnumber: 'VA-13023', status :'Success'},
+  {billdate:'04-20-21', billername: 'Florist Shop', servicename: 'Gift', billingnumber: 'VA-13023', status :'Fail'},
 ];
 
 @Component({
@@ -26,7 +26,7 @@ const ELEMENT_DATA: PaymentElement[] = [
 })
 export class PaymenthistoryComponent implements AfterViewInit {
 
-  displayedColumns: string[] = ['billdate', 'billername', 'servicename', 'billingnumer','status'];
+  displayedColumns: string[] = ['billdate', 'billername', 'servicename', 'billingnumber','status'];
    dataSource = new MatTableDataSource(ELEMENT_DATA);
 
   constructor(private _liveAnnouncer: LiveAnnouncer) {}

@@ -1,16 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import {MatSort, Sort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
+import {LiveAnnouncer} from '@angular/cdk/a11y';
 
 export interface PaymentMethodElement {
   nickname: string;
   accountnumber: string;
-  logo: string;
   action: string;
 }
 
 //database records
 const ELEMENT_DATA: PaymentMethodElement[] = [
-  {nickname:'Savings, Chase Bank', accountnumber: '******6690', logo: '', action: ''},
-  {nickname:'Checking, BOA', accountnumber: '******6543', logo: '', action: ''},
+  {nickname:'Savings, Chase Bank', accountnumber: '******6690', action: ''},
+  {nickname:'Checking, BOA', accountnumber: '******6543', action: ''},
 ];
 
 @Component({
@@ -18,14 +20,25 @@ const ELEMENT_DATA: PaymentMethodElement[] = [
   templateUrl: './savedpaymentmethods.component.html',
   styleUrls: ['./savedpaymentmethods.component.css']
 })
-export class SavedpaymentmethodsComponent implements OnInit {
+export class SavedpaymentmethodsComponent implements AfterViewInit {
 
-  displayedColumns: string[] = ['nickname', 'accountnumber', 'logo', 'action'];
-  dataSource = ELEMENT_DATA;
+  displayedColumns: string[] = ['nickname', 'accountnumber', 'action'];
+  dataSource = new MatTableDataSource(ELEMENT_DATA);
 
-  constructor() { }
+  constructor(private _liveAnnouncer: LiveAnnouncer) {}
 
-  ngOnInit(): void {
+  @ViewChild(MatSort, { static: false }) sort!: MatSort;
+
+  ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
+  }
+
+  announceSortChange(sortState: Sort) {
+    if (sortState.direction) {
+      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
+    } else {
+      this._liveAnnouncer.announce('Sorting cleared');
+    }
   }
 
 }
